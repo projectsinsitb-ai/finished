@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const links = [
   { label: 'Concepto', href: '#concept' },
@@ -28,9 +29,8 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold font-display">
-          <span className="text-gradient-gold">Forge</span>{' '}
-          <span className="text-foreground font-light">Custom</span>
+        <a href="#" className="flex items-center">
+          <img src={logo} alt="Forge Custom" className="h-10 w-auto" />
         </a>
 
         {/* Desktop */}

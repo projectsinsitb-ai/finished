@@ -13,7 +13,7 @@ const profiles = [
     accentColor: '#d4a24e',
     description: 'Setup compacto y eficiente para el día a día. Contabilidad, stock, videollamadas y ofimática sin complicaciones.',
     sceneType: 'desktop' as const,
-    features: ['Workstation compacta', 'Doble monitor', 'Webcam HD', 'Teclado ergonómico'],
+    features: ['AMD Ryzen 5 3400G', 'Radeon RX Vega 11', '8GB DDR4', 'SSD M.2 PCIe Gen3', 'Monitor PEAQ', 'Tacens Anima'],
     tagline: 'Simple. Eficiente. Fiable.',
   },
   {
@@ -25,7 +25,7 @@ const profiles = [
     accentColor: '#3b82f6',
     description: 'Potencia bruta para edición profesional y streaming. Refrigeración líquida, componentes premium y rendimiento extremo.',
     sceneType: 'monitor' as const,
-    features: ['RTX 4090', 'Refrigeración líquida', 'Monitor ultrawide OLED', 'StreamDeck'],
+    features: ['AMD Ryzen 9 9950X3D', 'MSI GeForce RTX 5080', 'Crucial DDR5', 'Lexar NM790 2TB', 'LG Smart OLED', 'Forgeon Solum Liquid'],
     tagline: 'Ultra potente. Sin límites.',
   },
   {
@@ -37,7 +37,7 @@ const profiles = [
     accentColor: '#c0c0c8',
     description: 'Elegancia y movilidad para el mundo profesional. Ecosistema Apple completo con la ligereza del MacBook Air.',
     sceneType: 'laptop' as const,
-    features: ['MacBook Air M3', 'iPad Pro', 'AirPods Pro', 'Apple Watch'],
+    features: ['MacBook Air M4 8-Core', '16GB Unificada', '256GB SSD', 'Cámara 12MP', 'Display XDR'],
     tagline: 'Ligero. Elegante. Apple.',
   },
   {
@@ -49,7 +49,7 @@ const profiles = [
     accentColor: '#a855f7',
     description: 'Estudio profesional optimizado para producción musical. Audio de alta fidelidad, monitorización precisa y control total.',
     sceneType: 'speaker' as const,
-    features: ['Monitores de estudio', 'Interfaz de audio', 'Controlador MIDI', 'DAW optimizado'],
+    features: ['AMD Ryzen 5 9600X', 'RTX 3050 LP', 'Kingston FURY 32GB', 'SSD 980 PRO 1TB', 'Audeze LCD-X', 'RME HDSPe AIO Pro'],
     tagline: 'Tu sonido. Tu estudio.',
   },
 ];
