@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { HeroScene } from './Scene3D';
 import heroBg from '@/assets/hero-bg.jpg';
+import logo from '@/assets/logo.png';
 
 const HeroSection = () => {
   return (
@@ -41,10 +42,7 @@ const HeroSection = () => {
             Tecnología forjada para durar
           </motion.p>
 
-          <h1 className="forge-heading text-foreground mb-6">
-            <span className="text-gradient-gold">Forge</span>{' '}
-            <span className="font-light">Custom</span>
-          </h1>
+          <img src={logo} alt="Forge Custom" className="h-24 md:h-32 w-auto mx-auto mb-6" />
 
           <motion.p
             className="forge-subheading mx-auto mb-12"

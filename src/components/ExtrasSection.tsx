@@ -5,26 +5,26 @@ import { Headphones, Keyboard, Lightbulb, SlidersHorizontal } from 'lucide-react
 const extras = [
   {
     icon: SlidersHorizontal,
-    name: 'StreamDeck',
-    description: 'Control total de tu streaming y productividad con teclas programables.',
+    name: 'Elgato Stream Deck + Audio Mixer',
+    description: 'Control total de tu streaming y productividad con teclas programables y mezclador de audio integrado.',
     tag: 'Productividad',
   },
   {
     icon: Headphones,
-    name: 'Auriculares Premium',
-    description: 'Sonido envolvente de alta fidelidad para gaming, música y comunicación.',
+    name: 'Audeze LCD-X / NOX Voice One',
+    description: 'Auriculares de referencia profesional para producción musical o auriculares Bluetooth para el día a día.',
     tag: 'Audio',
   },
   {
     icon: Lightbulb,
-    name: 'Iluminación RGB',
-    description: 'Ambilight inteligente que transforma tu espacio de trabajo en una experiencia visual.',
-    tag: 'Ambiente',
+    name: 'Elgato 4K PRO Webcam',
+    description: 'Cámara profesional 4K para streaming, videollamadas y grabación de contenido de máxima calidad.',
+    tag: 'Streaming',
   },
   {
     icon: Keyboard,
-    name: 'Controladores de Audio',
-    description: 'Interfaces y controladores profesionales para producción musical y podcasting.',
+    name: 'BEACN Mix Create',
+    description: 'Controlador de audio profesional con mezcla en tiempo real para streamers y productores musicales.',
     tag: 'Control',
   },
 ];

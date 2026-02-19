@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Instagram, Twitter, Youtube, Linkedin } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const socials = [
   { icon: Instagram, label: 'Instagram', href: '#' },
@@ -14,16 +15,14 @@ const FooterSection = () => {
       <div className="absolute inset-0 opacity-30" style={{ background: 'var(--gradient-hero)' }} />
 
       <div className="max-w-4xl mx-auto relative z-10 text-center">
-        {/* Logo */}
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold font-display mb-4"
+        <motion.div
+          className="flex justify-center mb-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <span className="text-gradient-gold">Forge</span>{' '}
-          <span className="text-foreground font-light">Custom</span>
-        </motion.h2>
+          <img src={logo} alt="Forge Custom" className="h-16 w-auto" />
+        </motion.div>
 
         <motion.p
           className="text-muted-foreground text-lg mb-10 max-w-lg mx-auto"
