@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ProductScene } from './Scene3D';
 import { Monitor, Cpu, Laptop, Music } from 'lucide-react';
+import ProfileDetailOverlay from './ProfileDetailOverlay';
 
 const profiles = [
   {
@@ -54,7 +55,7 @@ const profiles = [
   },
 ];
 
-const ProfileCard = ({ profile, index }: { profile: typeof profiles[0]; index: number }) => {
+const ProfileCard = ({ profile, index, onSelect }: { profile: typeof profiles[0]; index: number; onSelect: (id: string) => void }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
   const [isHovered, setIsHovered] = useState(false);
@@ -69,6 +70,7 @@ const ProfileCard = ({ profile, index }: { profile: typeof profiles[0]; index: n
       transition={{ duration: 0.8, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => onSelect(profile.id)}
     >
       {/* Gradient accent */}
       <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${profile.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -145,36 +147,44 @@ const ProfileCard = ({ profile, index }: { profile: typeof profiles[0]; index: n
 const ProfilesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
 
   return (
-    <section id="profiles" className="section-padding relative" ref={ref}>
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          className="text-center mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <p className="text-sm tracking-[0.3em] uppercase text-forge-gold mb-4 font-medium">
-            Perfiles de cliente
-          </p>
-          <h2 className="forge-heading text-foreground mb-6 font-display">
-            Tu setup,{' '}
-            <span className="text-gradient-gold">tu estilo</span>
-          </h2>
-          <p className="forge-subheading mx-auto">
-            Cada persona es única. Por eso cada configuración que creamos está diseñada
-            a medida, pensada para ti y tu forma de trabajar.
-          </p>
-        </motion.div>
+    <>
+      <section id="profiles" className="section-padding relative" ref={ref}>
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16 md:mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="text-sm tracking-[0.3em] uppercase text-forge-gold mb-4 font-medium">
+              Perfiles de cliente
+            </p>
+            <h2 className="forge-heading text-foreground mb-6 font-display">
+              Tu setup,{' '}
+              <span className="text-gradient-gold">tu estilo</span>
+            </h2>
+            <p className="forge-subheading mx-auto">
+              Cada persona es única. Por eso cada configuración que creamos está diseñada
+              a medida, pensada para ti y tu forma de trabajar.
+            </p>
+          </motion.div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-          {profiles.map((profile, i) => (
-            <ProfileCard key={profile.id} profile={profile} index={i} />
-          ))}
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {profiles.map((profile, i) => (
+              <ProfileCard key={profile.id} profile={profile} index={i} onSelect={setSelectedProfile} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <ProfileDetailOverlay
+        profileId={selectedProfile as any}
+        onClose={() => setSelectedProfile(null)}
+      />
+    </>
   );
 };
 
