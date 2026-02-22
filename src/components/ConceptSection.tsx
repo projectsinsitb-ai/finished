@@ -15,15 +15,15 @@ const ConceptSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* 3D Anvil */}
           <motion.div
-            className="h-[400px] lg:h-[500px] order-2 lg:order-1"
+            className="h-[280px] sm:h-[340px] md:h-[400px] lg:h-[500px] order-2 lg:order-1"
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="w-full h-full min-h-[300px] flex items-center justify-center">
+            <div className="w-full h-full min-h-[200px] sm:min-h-[300px] flex items-center justify-center">
               <div className="relative">
                 <div className="absolute inset-0 bg-blue-500/20 blur-[80px] rounded-full" />
-                <Anvil size={200} strokeWidth={1} className="text-cyan-400 relative z-10 drop-shadow-[0_0_30px_rgba(34,211,238,0.4)]" />
+                <Anvil size={120} strokeWidth={1} className="text-cyan-400 relative z-10 drop-shadow-[0_0_30px_rgba(34,211,238,0.4)] w-28 h-28 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-[200px] lg:h-[200px]" />
               </div>
             </div>
           </motion.div>
@@ -38,21 +38,21 @@ const ConceptSection = () => {
             <p className="text-sm tracking-[0.3em] uppercase text-cyan-400 mb-4 font-medium">
               Nuestro concepto
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 leading-tight font-display">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 sm:mb-8 leading-tight font-display">
               Firme. Resistente.{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Eterno.</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
               Nuestro logo representa un yunque: la herramienta del artesano que transforma
               el metal en bruto en obras maestras. Así es como creamos cada setup — con precisión,
               fuerza y atención al detalle.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
               Cada componente es seleccionado, cada cable organizado, cada configuración
               optimizada. No vendemos ordenadores. Forjamos herramientas que evolucionan contigo.
             </p>
 
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-3 sm:gap-6">
               {[
                 { value: '100%', label: 'Personalizado' },
                 { value: '3 años', label: 'Garantía' },
@@ -65,8 +65,8 @@ const ConceptSection = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.5 + i * 0.15, duration: 0.6 }}
                 >
-                  <div className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 font-display">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 font-display">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</div>
                 </motion.div>
               ))}
             </div>

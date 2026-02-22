@@ -56,30 +56,30 @@ const ExtrasSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
           {extras.map((extra, i) => {
             const Icon = extra.icon;
             return (
               <motion.div
                 key={extra.name}
-                className="glass rounded-2xl p-8 group hover:glow-gold transition-all duration-500 cursor-pointer"
+                className="glass rounded-xl sm:rounded-2xl p-5 sm:p-8 group hover:glow-gold transition-all duration-500 cursor-pointer"
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: i * 0.12 }}
                 whileHover={{ y: -4 }}
               >
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                    <Icon size={24} className="text-primary" />
+                <div className="flex items-start gap-4 sm:gap-5">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                    <Icon size={22} className="text-primary sm:w-6 sm:h-6" />
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-lg font-bold text-foreground font-display">{extra.name}</h3>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1 sm:mb-2">
+                      <h3 className="text-base sm:text-lg font-bold text-foreground font-display break-words">{extra.name}</h3>
                       <span className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium">
                         {extra.tag}
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       {extra.description}
                     </p>
                   </div>

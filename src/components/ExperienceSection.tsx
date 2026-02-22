@@ -68,17 +68,17 @@ const ExperienceSection = () => {
           </p>
         </motion.div>
 
-        <motion.div className="grid md:grid-cols-2 gap-8" style={{ y }}>
+        <motion.div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8" style={{ y }}>
           {experiences.map((exp, i) => (
             <motion.div
               key={exp.title}
-              className="glass rounded-2xl overflow-hidden group cursor-pointer"
+              className="glass rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.7, delay: i * 0.1 }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="h-64 md:h-72 relative bg-black/40 overflow-hidden">
+              <div className="h-52 sm:h-64 md:h-72 relative bg-black/40 overflow-hidden">
                 <img
                   src={exp.image}
                   alt={exp.title}
@@ -92,9 +92,9 @@ const ExperienceSection = () => {
                   {exp.tag}
                 </div>
               </div>
-              <div className="p-6 relative">
-                <h3 className="text-xl font-bold text-foreground font-display">{exp.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1">{exp.subtitle}</p>
+              <div className="p-4 sm:p-6 relative">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground font-display">{exp.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">{exp.subtitle}</p>
                 <div className="mt-3 text-xs text-primary font-medium tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Ver especificaciones →
                 </div>

@@ -97,7 +97,7 @@ const ProfileCard = ({ profile, index, onSelect }: { profile: typeof profiles[0]
   return (
     <motion.div
       ref={ref}
-      className={`group cursor-pointer rounded-[2rem] overflow-hidden relative shadow-2xl transition-transform duration-500 hover:-translate-y-2 flex flex-col justify-between h-[380px] md:h-[450px] p-8 md:p-10 ${profile.bgClass}`}
+      className={`group cursor-pointer rounded-2xl sm:rounded-[2rem] overflow-hidden relative shadow-2xl transition-transform duration-500 hover:-translate-y-2 flex flex-col justify-between min-h-[320px] h-[340px] sm:h-[380px] md:h-[450px] p-5 sm:p-8 md:p-10 ${profile.bgClass}`}
       initial={{ opacity: 0, y: 60 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
@@ -105,11 +105,11 @@ const ProfileCard = ({ profile, index, onSelect }: { profile: typeof profiles[0]
     >
       <div className="z-10 relative flex flex-col h-full pointer-events-none">
         <div>
-          <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wide mb-6 ${profile.pillClass}`}>
+          <span className={`inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold tracking-wide mb-3 sm:mb-6 ${profile.pillClass}`}>
             {profile.pillText}
           </span>
-          <h3 className={`text-5xl md:text-6xl font-bold font-display mb-2 ${profile.textClass}`}>{profile.name}</h3>
-          <p className={`text-base md:text-lg font-medium ${profile.taglineClass}`}>{profile.cardTagline}</p>
+          <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold font-display mb-1 sm:mb-2 leading-tight ${profile.textClass}`}>{profile.name}</h3>
+          <p className={`text-sm sm:text-base md:text-lg font-medium ${profile.taglineClass}`}>{profile.cardTagline}</p>
         </div>
 
         <div className="mt-auto pointer-events-auto w-max">
@@ -122,7 +122,7 @@ const ProfileCard = ({ profile, index, onSelect }: { profile: typeof profiles[0]
       </div>
 
       {/* Product Image positioned at the bottom right — sin fondo en Maria, Cristina, Marcell; Diego con fondo */}
-      <div className="absolute bottom-0 right-0 w-3/5 h-3/5 sm:w-1/2 sm:h-1/2 z-0 opacity-90 group-hover:scale-105 transition-transform duration-700 origin-bottom-right">
+      <div className="absolute bottom-0 right-0 w-2/3 h-2/3 sm:w-3/5 sm:h-3/5 md:w-1/2 md:h-1/2 z-0 opacity-90 group-hover:scale-105 transition-transform duration-700 origin-bottom-right">
         <div className="absolute inset-0 bg-gradient-to-t from-transparent to-transparent z-10" />
         <img
           src={profile.image}
@@ -145,7 +145,7 @@ const ProfilesSection = () => {
       <section id="profiles" className="section-padding relative" ref={ref}>
         <div className="max-w-7xl mx-auto">
           <motion.div
-            className="text-center mb-16 md:mb-20"
+            className="text-center mb-10 sm:mb-16 md:mb-20"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -163,7 +163,7 @@ const ProfilesSection = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {profiles.map((profile, i) => (
               <ProfileCard key={profile.id} profile={profile} index={i} onSelect={setSelectedProfile} />
             ))}

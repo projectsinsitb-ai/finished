@@ -140,15 +140,15 @@
   }
 
   .section-padding {
-    @apply py-14 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20;
+    @apply py-10 sm:py-14 md:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-20;
   }
 
   .forge-heading {
-    @apply text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-tight;
   }
 
   .forge-subheading {
-    @apply text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed;
+    @apply text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed;
   }
 
   .card-profile {
@@ -173,4 +173,19 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Safe area para móviles con notch (iPhone, etc.) */
+@supports (padding: env(safe-area-inset-top)) {
+  .safe-area-inset {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }

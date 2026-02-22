@@ -85,22 +85,22 @@ const HeroSection = () => {
           className="flex flex-col items-center text-center w-full"
         >
           {/* Glowing Anvil Icon above the title */}
-          <div className="relative mb-8 flex items-center justify-center">
+          <div className="relative mb-6 sm:mb-8 flex items-center justify-center">
             {/* Glow behind the anvil */}
             <div className="absolute inset-0 bg-cyan-400/40 blur-[50px] rounded-full scale-150" />
-            <Anvil size={70} strokeWidth={1} className="text-cyan-50 relative z-10 drop-shadow-[0_0_20px_rgba(34,211,238,0.9)]" />
+            <Anvil size={48} strokeWidth={1} className="text-cyan-50 relative z-10 drop-shadow-[0_0_20px_rgba(34,211,238,0.9)] sm:w-[56px] sm:h-[56px] md:w-[70px] md:h-[70px]" />
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-[7.5rem] font-medium text-white tracking-[0.25em] ml-[0.25em] font-display whitespace-nowrap">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[7.5rem] font-medium text-white tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.25em] ml-[0.15em] sm:ml-[0.25em] font-display text-center break-words max-w-[100vw] px-2">
             FORGE CUSTOM
           </h1>
 
-          <p className="mt-8 text-lg md:text-xl text-gray-400 font-light tracking-wide max-w-xl font-display">
+          <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-gray-400 font-light tracking-wide max-w-xl font-display px-2">
             Tecnología forjada para durar
           </p>
 
-          <div className="mt-16">
-            <a href="#profiles" className="group relative inline-flex items-center justify-center px-10 py-4 bg-[#111111] border border-cyan-500/40 rounded-full text-xs font-semibold text-gray-200 tracking-widest transition-all duration-300 hover:border-cyan-400 hover:text-white hover:bg-[#151a25] hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]">
+          <div className="mt-10 sm:mt-16">
+            <a href="#profiles" className="group relative inline-flex items-center justify-center px-6 sm:px-10 py-3 sm:py-4 bg-[#111111] border border-cyan-500/40 rounded-full text-xs font-semibold text-gray-200 tracking-widest transition-all duration-300 hover:border-cyan-400 hover:text-white hover:bg-[#151a25] hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]">
               Explorar configuraciones
               {/* Inner subtle glow ring */}
               <div className="absolute inset-0 rounded-full border border-cyan-400/0 group-hover:border-cyan-400/50 shadow-[inset_0_0_20px_rgba(34,211,238,0)] group-hover:shadow-[inset_0_0_20px_rgba(34,211,238,0.2)] transition-all duration-300 pointer-events-none" />
@@ -114,7 +114,7 @@ const HeroSection = () => {
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
+        className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
       >
         <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-gray-500" />
         <ArrowDown size={14} className="text-gray-400" />

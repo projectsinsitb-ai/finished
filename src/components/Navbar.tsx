@@ -26,12 +26,12 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3">
-          <div className="animate-spin-slow-y">
-            <Anvil size={24} className="text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <a href="#" className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <div className="animate-spin-slow-y shrink-0">
+            <Anvil size={22} className="text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] sm:w-6 sm:h-6" />
           </div>
-          <span className="text-xl tracking-[0.35em] font-light text-white whitespace-nowrap">
+          <span className="text-sm sm:text-xl tracking-[0.2em] sm:tracking-[0.35em] font-light text-white truncate">
             FORGE CUSTOM
           </span>
         </a>
@@ -66,7 +66,7 @@ const Navbar = () => {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="md:hidden glass-strong mt-2 mx-4 rounded-2xl p-6"
+            className="md:hidden glass-strong mt-2 mx-3 rounded-2xl p-5"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}

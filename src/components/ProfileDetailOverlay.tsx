@@ -267,7 +267,7 @@ const ProfileDetailOverlay = ({ profileId, onClose }: Props) => {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[100] flex flex-col pt-6 md:pt-10"
+        className="fixed inset-0 z-[100] flex flex-col pt-4 sm:pt-6 md:pt-10 safe-area-inset"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -278,20 +278,21 @@ const ProfileDetailOverlay = ({ profileId, onClose }: Props) => {
         <div className="absolute inset-0 bg-black/60" />
 
         {/* Header bar */}
-        <div className="relative z-50 flex items-center justify-between px-6 md:px-14 shrink-0 pb-4">
-          <div>
-            <p className="text-xs tracking-[0.25em] uppercase mb-1 font-semibold" style={{ color: profile.accentColor }}>
+        <div className="relative z-50 flex items-center justify-between px-4 sm:px-6 md:px-14 shrink-0 pb-3 sm:pb-4">
+          <div className="min-w-0 pr-2">
+            <p className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-0.5 sm:mb-1 font-semibold truncate" style={{ color: profile.accentColor }}>
               PERFIL / {profile.title.toUpperCase()}
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold font-display text-foreground">
+            <h2 className="text-lg sm:text-2xl md:text-3xl font-bold font-display text-foreground truncate">
               {profile.subtitle}
             </h2>
           </div>
           <button
-            className="w-12 h-12 rounded-full glass flex flex-shrink-0 items-center justify-center text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass flex flex-shrink-0 items-center justify-center text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 touch-manipulation"
             onClick={onClose}
+            aria-label="Cerrar"
           >
-            <X size={24} />
+            <X size={20} className="sm:w-6 sm:h-6" />
           </button>
         </div>
 
@@ -299,10 +300,10 @@ const ProfileDetailOverlay = ({ profileId, onClose }: Props) => {
         <div className="relative flex-1 overflow-y-auto w-full custom-scrollbar flex flex-col">
 
           {/* Main Feature Area (Image & Info side by side) */}
-          <div className="w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-14 px-6 md:px-14 py-6 md:py-10">
+          <div className="w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-8 md:gap-14 px-4 sm:px-6 md:px-14 py-4 sm:py-6 md:py-10">
 
             {/* Left: Huge Product Image */}
-            <div className="relative w-full lg:w-[50%] flex justify-center items-center min-h-[35vh] lg:min-h-[50vh]">
+            <div className="relative w-full lg:w-[50%] flex justify-center items-center min-h-[28vh] sm:min-h-[35vh] lg:min-h-[50vh]">
               <AnimatePresence mode="popLayout">
                 <motion.div
                   key={activeIndex}
@@ -315,7 +316,7 @@ const ProfileDetailOverlay = ({ profileId, onClose }: Props) => {
                   <img
                     src={profile.components[activeIndex].imageUrl}
                     alt={profile.components[activeIndex].name}
-                    className="max-w-full max-h-[60vh] object-contain rounded-[2rem]"
+                    className="max-w-full max-h-[45vh] sm:max-h-[55vh] lg:max-h-[60vh] object-contain rounded-xl sm:rounded-2xl md:rounded-[2rem]"
                     style={{ filter: `drop-shadow(0px 30px 50px ${profile.accentColor}30)` }}
                   />
                 </motion.div>
@@ -331,25 +332,25 @@ const ProfileDetailOverlay = ({ profileId, onClose }: Props) => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -30 }}
                   transition={{ duration: 0.4 }}
-                  className="glass rounded-3xl p-8 md:p-12 relative overflow-hidden"
+                  className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 relative overflow-hidden"
                   style={{ border: `1px solid ${profile.accentColor}40` }}
                 >
                   {/* Decorative internal glow */}
-                  <div className="absolute top-0 right-0 w-32 h-32 blur-[60px] rounded-full opacity-20 pointer-events-none" style={{ backgroundColor: profile.accentColor }} />
+                  <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 blur-[60px] rounded-full opacity-20 pointer-events-none" style={{ backgroundColor: profile.accentColor }} />
 
-                  <h3 className="text-3xl md:text-5xl font-bold text-foreground font-display leading-[1.1] mb-6">
+                  <h3 className="text-xl sm:text-3xl md:text-5xl font-bold text-foreground font-display leading-[1.1] mb-4 sm:mb-6 break-words">
                     {profile.components[activeIndex].name}
                   </h3>
 
-                  <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light mb-10">
+                  <p className="text-sm sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-light mb-6 sm:mb-10">
                     {profile.components[activeIndex].benefit}
                   </p>
 
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-auto">
                     {profile.components[activeIndex].price && (
                       <div className="flex flex-col">
-                        <span className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Precio</span>
-                        <span className="text-3xl font-bold font-display" style={{ color: profile.accentColor }}>
+                        <span className="text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground mb-0.5 sm:mb-1">Precio</span>
+                        <span className="text-2xl sm:text-3xl font-bold font-display" style={{ color: profile.accentColor }}>
                           {profile.components[activeIndex].price}
                         </span>
                       </div>
@@ -373,35 +374,35 @@ const ProfileDetailOverlay = ({ profileId, onClose }: Props) => {
           </div>
 
           {/* ── Bottom: Horizontal Component Menu ── */}
-          <div className="w-full max-w-[1600px] mx-auto mt-auto shrink-0 pb-12 pt-6 px-6 md:px-14">
-            <div className="flex items-center gap-6 mb-6">
-              <span className="text-sm tracking-[0.2em] font-semibold text-muted-foreground uppercase">
-                Lista de componentes ({profile.components.length})
+          <div className="w-full max-w-[1600px] mx-auto mt-auto shrink-0 pb-8 sm:pb-12 pt-4 sm:pt-6 px-4 sm:px-6 md:px-14">
+            <div className="flex items-center gap-3 sm:gap-6 mb-4 sm:mb-6">
+              <span className="text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] font-semibold text-muted-foreground uppercase whitespace-nowrap">
+                Componentes ({profile.components.length})
               </span>
-              <div className="h-px bg-border flex-1" />
+              <div className="h-px bg-border flex-1 min-w-0" />
             </div>
 
-            <div className="flex overflow-x-auto gap-4 pb-4 snap-x custom-scrollbar">
+            <div className="flex overflow-x-auto gap-3 sm:gap-4 pb-4 snap-x snap-mandatory custom-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
               {profile.components.map((comp, i) => {
                 const isActive = i === activeIndex;
                 return (
                   <button
                     key={i}
                     onClick={() => setActiveIndex(i)}
-                    className="group relative shrink-0 snap-start text-left flex items-center gap-4 rounded-2xl transition-all duration-300 overflow-hidden"
+                    className="group relative shrink-0 snap-start text-left flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl transition-all duration-300 overflow-hidden touch-manipulation"
                     style={{
-                      width: '340px',
-                      padding: '12px',
+                      width: 'min(280px, 85vw)',
+                      padding: '10px 12px',
                       backgroundColor: isActive ? 'hsl(var(--card))' : 'rgba(255,255,255,0.02)',
                       border: `1px solid ${isActive ? profile.accentColor : 'hsl(var(--border))'}`
                     }}
                   >
-                    <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-black/50 border border-white/5 group-hover:border-white/20 transition-all">
+                    <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-lg sm:rounded-xl overflow-hidden shrink-0 bg-black/50 border border-white/5 group-hover:border-white/20 transition-all">
                       <img src={comp.imageUrl} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" alt="" />
                     </div>
-                    <div className="flex flex-col min-w-0 pr-2">
-                      <span className="text-base font-bold text-foreground truncate">{comp.name}</span>
-                      <span className="text-xs font-medium text-muted-foreground/80 truncate overflow-hidden text-ellipsis mt-1">
+                    <div className="flex flex-col min-w-0 pr-1 sm:pr-2 flex-1">
+                      <span className="text-sm sm:text-base font-bold text-foreground truncate">{comp.name}</span>
+                      <span className="text-[10px] sm:text-xs font-medium text-muted-foreground/80 truncate overflow-hidden text-ellipsis mt-0.5 sm:mt-1 line-clamp-2 sm:line-clamp-none">
                         {comp.benefit}
                       </span>
                     </div>
