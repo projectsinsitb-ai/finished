@@ -1,18 +1,18 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-import rtx5080Img from '@/assets/rtx5080.png';
 import macbookImg from '@/assets/macbook_air.png';
 import audSystemImg from '@/assets/audeze_headphones.png';
 import elgatoImg from '@/assets/elgato_streamdeck.png';
 
 const experiences = [
   {
-    image: rtx5080Img,
-    title: 'MSI GeForce RTX 5080',
+    image: '/Diego/MSI_GeForce_RTX_5080.png',
+    title: 'GeForce RTX 5080 Founders Edition',
     subtitle: 'Renderizado sin límites',
     tag: 'GPU Premium',
     tagColor: '#3b82f6',
+    link: 'https://www.nvidia.com/es-es/geforce/graphics-cards/50-series/rtx-5080/',
   },
   {
     image: macbookImg,
@@ -20,6 +20,7 @@ const experiences = [
     subtitle: 'Ligereza y potencia',
     tag: 'Entorno móvil',
     tagColor: '#c0c0c8',
+    link: 'https://www.apple.com/es/shop/xc/product/mba-2025-roc-13-sky-blue-g?option.keyboard=E065-CJWP&option.inputs=065-CH7F&option.thunderbolt=065-CH7D&option.software_final=065-CH9Q&option.retina_display=065-CH7G&option.power_adapter=065-CH63&option.mouse_and_track_pad=065-CH7C&option.software_logic=065-CH9V&option.memory=065-CH5V&option.storage=065-CH5Y&option.countrykit=Y065-CJWQ&option.processor=065-CH5Q',
   },
   {
     image: elgatoImg,
@@ -27,6 +28,7 @@ const experiences = [
     subtitle: 'Control total del streaming',
     tag: 'Productividad',
     tagColor: '#d4a24e',
+    link: 'https://www.elgato.com/es/es/p/stream-deck-plus',
   },
   {
     image: audSystemImg,
@@ -34,6 +36,7 @@ const experiences = [
     subtitle: 'Referencia de audio profesional',
     tag: 'Audio pro',
     tagColor: '#a855f7',
+    link: 'https://www.audeze.com/products/lcd-x',
   },
 ];
 
@@ -70,9 +73,12 @@ const ExperienceSection = () => {
 
         <motion.div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8" style={{ y }}>
           {experiences.map((exp, i) => (
-            <motion.div
+            <motion.a
               key={exp.title}
-              className="glass rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer"
+              href={exp.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer block"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.7, delay: i * 0.1 }}
@@ -95,11 +101,11 @@ const ExperienceSection = () => {
               <div className="p-4 sm:p-6 relative">
                 <h3 className="text-lg sm:text-xl font-bold text-foreground font-display">{exp.title}</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground mt-1">{exp.subtitle}</p>
-                <div className="mt-3 text-xs text-primary font-medium tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-3 text-xs text-primary font-medium tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
                   Ver especificaciones →
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </div>
