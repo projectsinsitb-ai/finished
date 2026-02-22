@@ -6,57 +6,61 @@
 
 @layer base {
   :root {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 95%;
+    --background: 222 47% 4%;
+    --foreground: 0 0% 100%;
 
-    --card: 240 8% 8%;
-    --card-foreground: 0 0% 95%;
+    --card: 222 47% 6%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 240 8% 8%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 222 47% 6%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 38 92% 50%;
-    --primary-foreground: 240 10% 4%;
+    --primary: 188 86% 53%;
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 240 6% 14%;
-    --secondary-foreground: 0 0% 85%;
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 6% 12%;
-    --muted-foreground: 240 5% 55%;
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 100% 56%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 271 91% 59%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 18%;
-    --input: 240 6% 18%;
-    --ring: 38 92% 50%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 188 86% 53%;
 
     --radius: 0.75rem;
 
-    --forge-gold: 38 92% 50%;
-    --forge-gold-light: 42 100% 65%;
-    --forge-amber: 30 90% 45%;
-    --forge-dark: 240 10% 4%;
-    --forge-surface: 240 8% 8%;
-    --forge-surface-light: 240 6% 14%;
-    --forge-blue: 210 100% 56%;
-    --forge-blue-glow: 210 100% 70%;
+    --forge-gold: 188 86% 53%;
+    /* Now Cyan */
+    --forge-gold-light: 271 91% 59%;
+    /* Now Purple */
+    --forge-amber: 199 89% 48%;
+    /* Now Blue */
+    --forge-dark: 222 47% 4%;
+    --forge-surface: 222 47% 6%;
+    --forge-surface-light: 222 47% 12%;
+    --forge-blue: 271 91% 59%;
+    /* Now Purple */
+    --forge-blue-glow: 271 91% 75%;
 
-    --glass-bg: 240 8% 12% / 0.6;
-    --glass-border: 0 0% 100% / 0.08;
+    --glass-bg: 222 47% 12% / 0.6;
+    --glass-border: 188 86% 53% / 0.15;
     --glass-shadow: 0 0% 0% / 0.4;
 
-    --gradient-gold: linear-gradient(135deg, hsl(38 92% 50%), hsl(42 100% 65%));
-    --gradient-dark: linear-gradient(180deg, hsl(240 10% 4%), hsl(240 10% 7%));
-    --gradient-glass: linear-gradient(135deg, hsl(240 8% 12% / 0.4), hsl(240 8% 8% / 0.2));
-    --gradient-hero: radial-gradient(ellipse at 50% 0%, hsl(38 92% 50% / 0.08) 0%, transparent 60%);
+    --gradient-gold: linear-gradient(135deg, hsl(188 86% 53%), hsl(271 91% 59%));
+    --gradient-dark: linear-gradient(180deg, hsl(222 47% 4%), hsl(222 47% 7%));
+    --gradient-glass: linear-gradient(135deg, hsl(222 47% 12% / 0.4), hsl(222 47% 8% / 0.2));
+    --gradient-hero: radial-gradient(ellipse at 50% 0%, hsl(188 86% 53% / 0.12) 0%, transparent 60%);
 
-    --shadow-gold: 0 0 40px hsl(38 92% 50% / 0.15);
-    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
-    --shadow-glow: 0 0 60px hsl(38 92% 50% / 0.2);
+    --shadow-gold: 0 0 40px hsl(188 86% 53% / 0.25);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 60px hsl(271 91% 59% / 0.3);
   }
 }
 
@@ -64,11 +68,18 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', system-ui, sans-serif;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Space Grotesk', 'Inter', sans-serif;
   }
 }
@@ -106,9 +117,10 @@
   .btn-forge {
     @apply relative overflow-hidden px-8 py-4 rounded-full font-semibold text-sm tracking-wider uppercase;
     background: var(--gradient-gold);
-    color: hsl(var(--forge-dark));
+    color: white;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   .btn-forge:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-glow);
@@ -117,17 +129,18 @@
   .btn-forge-outline {
     @apply relative overflow-hidden px-8 py-4 rounded-full font-semibold text-sm tracking-wider uppercase;
     background: transparent;
-    border: 1px solid hsl(var(--forge-gold) / 0.4);
-    color: hsl(var(--forge-gold));
+    border: 1px solid hsl(var(--forge-blue) / 0.4);
+    color: hsl(var(--forge-blue));
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   .btn-forge-outline:hover {
-    background: hsl(var(--forge-gold) / 0.1);
-    border-color: hsl(var(--forge-gold));
+    background: hsl(var(--forge-blue) / 0.1);
+    border-color: hsl(var(--forge-blue));
   }
 
   .section-padding {
-    @apply py-24 md:py-32 lg:py-40 px-6 md:px-12 lg:px-20;
+    @apply py-14 md:py-20 lg:py-24 px-6 md:px-12 lg:px-20;
   }
 
   .forge-heading {
@@ -141,6 +154,7 @@
   .card-profile {
     @apply glass rounded-2xl p-8 transition-all duration-500;
   }
+
   .card-profile:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-gold);
@@ -151,6 +165,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }

@@ -33,7 +33,7 @@ function FloatingChip({ position, speed = 1 }: { position: [number, number, numb
     <Float speed={speed * 0.8} rotationIntensity={0.3} floatIntensity={2}>
       <mesh ref={meshRef} position={position}>
         <cylinderGeometry args={[0.4, 0.4, 0.08, 6]} />
-        <meshStandardMaterial color="#d4a24e" metalness={0.9} roughness={0.1} />
+        <meshStandardMaterial color="#a855f7" metalness={0.9} roughness={0.1} />
       </mesh>
     </Float>
   );
@@ -54,22 +54,22 @@ export function HeroScene() {
   return (
     <Canvas camera={{ position: [0, 0, 8], fov: 45 }} style={{ position: 'absolute', inset: 0 }}>
       <ambientLight intensity={0.3} />
-      <pointLight position={[5, 5, 5]} intensity={1} color="#d4a24e" />
-      <pointLight position={[-5, -3, 3]} intensity={0.5} color="#3b82f6" />
-      <spotLight position={[0, 8, 4]} intensity={0.8} color="#d4a24e" angle={0.4} penumbra={0.5} />
+      <pointLight position={[5, 5, 5]} intensity={1} color="#a855f7" />
+      <pointLight position={[-5, -3, 3]} intensity={0.5} color="#22d3ee" />
+      <spotLight position={[0, 8, 4]} intensity={0.8} color="#a855f7" angle={0.4} penumbra={0.5} />
 
       <FloatingBox position={[-3, 1.5, 0]} size={[0.6, 0.6, 0.6]} color="#1a1a2e" speed={0.8} />
       <FloatingBox position={[3.5, -1, -1]} size={[0.8, 0.15, 1.2]} color="#2a2a3e" speed={1.2} />
       <FloatingBox position={[-2, -2, 1]} size={[1, 0.1, 0.6]} color="#1e1e30" speed={0.6} />
       <FloatingBox position={[2, 2.5, -2]} size={[0.4, 0.8, 0.4]} color="#252538" speed={1} />
-      
+
       <FloatingChip position={[1.5, 0.5, 1]} speed={0.7} />
       <FloatingChip position={[-1.8, -0.8, 0.5]} speed={1.1} />
-      
-      <GlowSphere position={[4, 2, -1]} color="#d4a24e" />
-      <GlowSphere position={[-4, -1.5, 0]} color="#3b82f6" />
-      <GlowSphere position={[0, 3, -2]} color="#d4a24e" />
-      <GlowSphere position={[-3, 2.5, -1]} color="#d4a24e" />
+
+      <GlowSphere position={[4, 2, -1]} color="#a855f7" />
+      <GlowSphere position={[-4, -1.5, 0]} color="#22d3ee" />
+      <GlowSphere position={[0, 3, -2]} color="#a855f7" />
+      <GlowSphere position={[-3, 2.5, -1]} color="#22d3ee" />
 
       <Environment preset="night" />
     </Canvas>

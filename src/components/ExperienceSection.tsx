@@ -1,12 +1,40 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { ProductScene } from './Scene3D';
+
+import rtx5080Img from '@/assets/rtx5080.png';
+import macbookImg from '@/assets/macbook_air.png';
+import audSystemImg from '@/assets/audeze_headphones.png';
+import elgatoImg from '@/assets/elgato_streamdeck.png';
 
 const experiences = [
-  { type: 'desktop' as const, title: 'Workstation', subtitle: 'Potencia compacta' },
-  { type: 'monitor' as const, title: 'Ultrawide', subtitle: 'Visión total' },
-  { type: 'laptop' as const, title: 'MacBook Air', subtitle: 'Ligereza premium' },
-  { type: 'speaker' as const, title: 'Studio Monitor', subtitle: 'Audio perfecto' },
+  {
+    image: rtx5080Img,
+    title: 'MSI GeForce RTX 5080',
+    subtitle: 'Renderizado sin límites',
+    tag: 'GPU Premium',
+    tagColor: '#3b82f6',
+  },
+  {
+    image: macbookImg,
+    title: 'MacBook Air M4',
+    subtitle: 'Ligereza y potencia',
+    tag: 'Entorno móvil',
+    tagColor: '#c0c0c8',
+  },
+  {
+    image: elgatoImg,
+    title: 'Elgato Stream Deck +',
+    subtitle: 'Control total del streaming',
+    tag: 'Productividad',
+    tagColor: '#d4a24e',
+  },
+  {
+    image: audSystemImg,
+    title: 'Audeze LCD-X',
+    subtitle: 'Referencia de audio profesional',
+    tag: 'Audio pro',
+    tagColor: '#a855f7',
+  },
 ];
 
 const ExperienceSection = () => {
@@ -17,7 +45,7 @@ const ExperienceSection = () => {
     target: containerRef,
     offset: ['start end', 'end start'],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
     <section className="section-padding relative overflow-hidden" ref={ref}>
@@ -29,37 +57,46 @@ const ExperienceSection = () => {
           transition={{ duration: 0.8 }}
         >
           <p className="text-sm tracking-[0.3em] uppercase text-forge-gold mb-4 font-medium">
-            Experiencia 3D
+            Productos reales
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 font-display">
-            Explora cada{' '}
-            <span className="text-gradient-gold">detalle</span>
+            Hardware{' '}
+            <span className="text-gradient-gold">de élite</span>
           </h2>
           <p className="forge-subheading mx-auto">
-            Interactúa con nuestros productos en 3D. Gira, observa y descubre la calidad
-            de cada componente.
+            Componentes seleccionados a mano. Calidad premium en cada setup que forjamos.
           </p>
         </motion.div>
 
         <motion.div className="grid md:grid-cols-2 gap-8" style={{ y }}>
           {experiences.map((exp, i) => (
             <motion.div
-              key={exp.type}
+              key={exp.title}
               className="glass rounded-2xl overflow-hidden group cursor-pointer"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.7, delay: i * 0.1 }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="h-64 md:h-72 relative">
-                <ProductScene type={exp.type} />
+              <div className="h-64 md:h-72 relative bg-black/40 overflow-hidden">
+                <img
+                  src={exp.image}
+                  alt={exp.title}
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent pointer-events-none" />
+                <div
+                  className="absolute top-4 right-4 text-xs font-semibold px-3 py-1.5 rounded-full"
+                  style={{ background: `${exp.tagColor}25`, color: exp.tagColor, border: `1px solid ${exp.tagColor}40` }}
+                >
+                  {exp.tag}
+                </div>
               </div>
               <div className="p-6 relative">
                 <h3 className="text-xl font-bold text-foreground font-display">{exp.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{exp.subtitle}</p>
                 <div className="mt-3 text-xs text-primary font-medium tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Arrastra para rotar →
+                  Ver especificaciones →
                 </div>
               </div>
             </motion.div>

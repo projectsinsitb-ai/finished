@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import { Menu, X, Anvil } from 'lucide-react';
 
 const links = [
   { label: 'Concepto', href: '#concept' },
@@ -21,16 +20,20 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass-strong py-3' : 'py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'glass-strong py-3' : 'py-5'
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center">
-          <img src={logo} alt="Forge Custom" className="h-10 w-auto" />
+        <a href="#" className="flex items-center gap-3">
+          <div className="animate-spin-slow-y">
+            <Anvil size={24} className="text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+          </div>
+          <span className="text-xl tracking-[0.35em] font-light text-white whitespace-nowrap">
+            FORGE CUSTOM
+          </span>
         </a>
 
         {/* Desktop */}

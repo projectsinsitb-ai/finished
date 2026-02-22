@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { Instagram, Twitter, Youtube, Linkedin } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import { Instagram, Twitter, Youtube, Linkedin, Anvil } from 'lucide-react';
 
 const socials = [
   { icon: Instagram, label: 'Instagram', href: '#' },
@@ -21,7 +20,14 @@ const FooterSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <img src={logo} alt="Forge Custom" className="h-16 w-auto" />
+          <div className="flex flex-col items-center justify-center gap-2">
+            <div className="animate-spin-slow-y">
+              <Anvil size={36} strokeWidth={1.5} className="text-cyan-400 drop-shadow-[0_0_12px_rgba(34,211,238,0.5)]" />
+            </div>
+            <h2 className="text-2xl md:text-3xl tracking-[0.4em] font-light text-white whitespace-nowrap ml-[0.4em]">
+              FORGE CUSTOM
+            </h2>
+          </div>
         </motion.div>
 
         <motion.p
