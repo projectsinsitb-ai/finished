@@ -323,13 +323,13 @@ const ProfileDetailOverlay = ({ profileId, onClose }: Props) => {
     <AnimatePresence>
       <motion.div
         className="fixed inset-0 z-[100] flex flex-col pt-4 sm:pt-6 md:pt-10 safe-area-inset"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.4 }}
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.98 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
         {/* Dark backdrop */}
-        <div className="absolute inset-0 bg-background/98 backdrop-blur-3xl" style={{ background: profile.bgGradient }} />
+        <div className="absolute inset-0 bg-background/98 backdrop-blur-3xl transition-colors duration-700" style={{ background: profile.bgGradient }} />
         <div className="absolute inset-0 bg-black/60" />
 
         {/* Header bar */}
@@ -363,15 +363,15 @@ const ProfileDetailOverlay = ({ profileId, onClose }: Props) => {
                 <motion.div
                   key={activeIndex}
                   className="relative flex items-center justify-center w-full h-full"
-                  initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)', y: 20 }}
+                  initial={{ opacity: 0, scale: 0.9, filter: 'blur(20px)', y: 40 }}
                   animate={{ opacity: 1, scale: 1, filter: 'blur(0px)', y: 0 }}
-                  exit={{ opacity: 0, scale: 1.05, filter: 'blur(10px)', y: -20 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  exit={{ opacity: 0, scale: 1.1, filter: 'blur(20px)', y: -40 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 >
                   <img
                     src={profile.components[activeIndex].imageUrl}
                     alt={profile.components[activeIndex].name}
-                    className="max-w-full max-h-[45vh] sm:max-h-[55vh] lg:max-h-[60vh] object-contain rounded-xl sm:rounded-2xl md:rounded-[2rem]"
+                    className="max-w-full max-h-[45vh] sm:max-h-[55vh] lg:max-h-[60vh] object-contain rounded-xl sm:rounded-2xl md:rounded-[2rem] hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:rotate-1"
                     style={{ filter: `drop-shadow(0px 30px 50px ${profile.accentColor}30)` }}
                   />
                 </motion.div>
@@ -383,12 +383,12 @@ const ProfileDetailOverlay = ({ profileId, onClose }: Props) => {
               <AnimatePresence mode="popLayout">
                 <motion.div
                   key={activeIndex}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.4 }}
-                  className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 relative overflow-hidden"
-                  style={{ border: `1px solid ${profile.accentColor}40` }}
+                  initial={{ opacity: 0, x: 50, filter: 'blur(10px)' }}
+                  animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, x: -50, filter: 'blur(10px)' }}
+                  transition={{ type: "spring", stiffness: 250, damping: 25 }}
+                  className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 relative overflow-hidden hover:shadow-2xl transition-shadow duration-500 group"
+                  style={{ border: `1px solid ${profile.accentColor}40`, boxShadow: `0 10px 40px -10px ${profile.accentColor}20` }}
                 >
                   {/* Decorative internal glow */}
                   <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 blur-[60px] rounded-full opacity-20 pointer-events-none" style={{ backgroundColor: profile.accentColor }} />
@@ -444,12 +444,13 @@ const ProfileDetailOverlay = ({ profileId, onClose }: Props) => {
                   <button
                     key={i}
                     onClick={() => setActiveIndex(i)}
-                    className="group relative shrink-0 snap-start text-left flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl transition-all duration-300 overflow-hidden touch-manipulation"
+                    className="group relative shrink-0 snap-start text-left flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl transition-all duration-300 overflow-hidden touch-manipulation hover:-translate-y-1 hover:shadow-lg active:scale-95"
                     style={{
                       width: 'min(280px, 85vw)',
                       padding: '10px 12px',
                       backgroundColor: isActive ? 'hsl(var(--card))' : 'rgba(255,255,255,0.02)',
-                      border: `1px solid ${isActive ? profile.accentColor : 'hsl(var(--border))'}`
+                      border: `1px solid ${isActive ? profile.accentColor : 'rgba(255,255,255,0.1)'}`,
+                      boxShadow: isActive ? `0 8px 30px -5px ${profile.accentColor}40` : 'none',
                     }}
                   >
                     <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-lg sm:rounded-xl overflow-hidden shrink-0 bg-black/50 border border-white/5 group-hover:border-white/20 transition-all">
