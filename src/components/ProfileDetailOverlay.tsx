@@ -21,7 +21,7 @@ const profileData: Record<ProfileId, {
 }> = {
   maria: {
     title: 'María',
-    subtitle: 'Dependienta · $436',
+    subtitle: 'Dependienta · 436€',
     accentColor: '#0891b2',
     bgGradient: 'radial-gradient(ellipse at 50% 50%, rgba(8,145,178,0.15) 0%, transparent 60%)',
     components: [
@@ -88,7 +88,7 @@ const profileData: Record<ProfileId, {
   },
   diego: {
     title: 'Diego',
-    subtitle: 'Editor de Vídeo · $4,744',
+    subtitle: 'Editor de Vídeo · 4.744€',
     accentColor: '#3b82f6',
     bgGradient: 'radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.15) 0%, transparent 60%)',
     components: [
@@ -138,43 +138,43 @@ const profileData: Record<ProfileId, {
         name: 'Elgato Stream Deck + Audio Mixer',
         benefit: 'Control total del streaming y mezcla de audio integrada para tu estudio de edición.',
         imageUrl: '/Diego/Adicionales/Elgato_Stream_Deck_Audio_Mixer.webp',
-        price: '~350€'
+        price: '183,20€'
       },
       {
         name: 'Elgato 4K PRO',
         benefit: 'Webcam 4K profesional para streaming, videollamadas y grabación con la máxima calidad.',
         imageUrl: '/Diego/Adicionales/Elgato_4K_PRO.jpg',
-        price: '~280€'
+        price: '294,99€'
       },
       {
         name: 'Quntis 45cm Lámpara Monitor Curvo',
         benefit: 'Iluminación uniforme para reducir fatiga visual en largas sesiones de edición.',
         imageUrl: '/Diego/Adicionales/Quntis_45cm_Lampara_Monitor_Curvo.webp',
-        price: '~50€'
+        price: '74,99€'
       },
       {
         name: 'RØDE NTH-100 Auriculares Over-Ear',
         benefit: 'Auriculares de estudio para monitoreo fiel y edición de audio en tus proyectos.',
         imageUrl: '/Diego/Adicionales/R%C3%98DE%20NTH-100%20Auriculares%20Over-Ear%20Profesionales..jfif',
-        price: '~150€'
+        price: '120,00€'
       },
       {
         name: 'Logitech MX Master 4',
         benefit: 'Ratón ergonómico inalámbrico para productividad y edición con botones programables y scroll de precisión.',
         imageUrl: '/Diego/Adicionales/Logitech_MX_Master_4.webp',
-        price: '~130€'
+        price: '129,90€'
       },
       {
         name: 'Razer Viper V3 HyperSpeed',
         benefit: 'Ratón gaming ultraligero para reacción rápida en gaming y edición con sensor de alta precisión.',
         imageUrl: '/Diego/Adicionales/Razer%20Viper%20V3%20HyperSpeed.webp',
-        price: '~100€'
+        price: '80,00€'
       }
     ],
   },
   cristina: {
     title: 'Cristina',
-    subtitle: 'Entorno Inmobiliario · $978',
+    subtitle: 'Entorno Inmobiliario · 978€',
     accentColor: '#a855f7',
     bgGradient: 'radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.15) 0%, transparent 60%)',
     components: [
@@ -182,6 +182,7 @@ const profileData: Record<ProfileId, {
         name: 'Macbook Air M4',
         benefit: 'Tan fino y ligero que olvidarás que lo llevas en el bolso. Presenta las mejores propiedades a clientes.',
         imageUrl: '/Cristina/Macbook_Air_M4.webp',
+        price: '959,01€'
       },
       {
         name: 'Display XDR & 16GB Unificada',
@@ -203,7 +204,7 @@ const profileData: Record<ProfileId, {
   },
   marcel: {
     title: 'Marcel',
-    subtitle: 'Productor Musical · $1,000',
+    subtitle: 'Productor Musical · 1.000€',
     accentColor: '#E54D2E',
     bgGradient: 'radial-gradient(ellipse at 50% 50%, rgba(229,77,46,0.25) 0%, rgba(18,18,20,0.95) 50%, transparent 70%)',
     components: [
@@ -253,31 +254,31 @@ const profileData: Record<ProfileId, {
         name: 'Audeze LCD-X (Adicional extra)',
         benefit: 'Auriculares de referencia absoluta usados por las leyendas globales de mezcla para percibir detalles quirúrgicos.',
         imageUrl: '/Marcel/aditionals/Audeze_LCD-X.jpg',
-        price: '~1.244€'
+        price: '1.244,00€'
       },
       {
         name: 'Logitech MX Master 4',
         benefit: 'Ratón ergonómico para productividad y control preciso en sesiones largas de producción.',
         imageUrl: '/Marcel/aditionals/Logitech_MX_Master_4.webp',
-        price: '~130€'
+        price: '129,90€'
       },
       {
         name: 'BEACN Mix Create',
         benefit: 'Mezclador de audio físico para streamers y productores con control en tiempo real.',
         imageUrl: '/Marcel/aditionals/BEACN_Mix_Create.jfif',
-        price: '~280€'
+        price: '241,00€'
       },
       {
         name: 'RME HDSPe AIO Pro',
         benefit: 'Tarjeta de sonido profesional de referencia para grabación y mezcla de bajo latency.',
         imageUrl: '/Marcel/aditionals/RME_HDSPe_AIO_Pro.jpg',
-        price: '~450€'
+        price: '719,00€'
       },
       {
         name: 'MX Mechanical Mini',
         benefit: 'Teclado compacto mecánico para el estudio con teclas programables y conexión flexible.',
         imageUrl: '/Marcel/aditionals/MX_Mechanical_Mini.webp',
-        price: '~120€'
+        price: '159,90€'
       }
     ],
   },
